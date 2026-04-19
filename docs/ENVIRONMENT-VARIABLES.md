@@ -57,11 +57,11 @@ A `.env` file stores configuration that changes across environments, for example
 ## Variables del backend / Backend variables
 
 - `PORT`: puerto de Express
-- `CORS_ORIGIN`: origen permitido del frontend
+- `CORS_ORIGIN`: origen permitido del frontend, con soporte para multiples URLs separadas por comas
 - `DATABASE_URL`: cadena de conexion de Prisma a PostgreSQL
 
 - `PORT`: Express port
-- `CORS_ORIGIN`: allowed frontend origin
+- `CORS_ORIGIN`: allowed frontend origin, with support for multiple comma-separated URLs
 - `DATABASE_URL`: Prisma PostgreSQL connection string
 
 ## Regla didactica importante / Important teaching rule

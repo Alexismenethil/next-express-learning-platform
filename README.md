@@ -138,8 +138,8 @@ project-root/
   docs/         Guides and architecture docs
 ```
 
-Más detalle en [docs/FOLDER-STRUCTURE.md](docs/FOLDER-STRUCTURE.md).  
-More detail in [docs/FOLDER-STRUCTURE.md](docs/FOLDER-STRUCTURE.md).
+Más detalle en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) y [docs/ONBOARDING-GUIDE.md](docs/ONBOARDING-GUIDE.md).  
+More detail in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and [docs/ONBOARDING-GUIDE.md](docs/ONBOARDING-GUIDE.md).
 
 ---
 
@@ -149,7 +149,7 @@ More detail in [docs/FOLDER-STRUCTURE.md](docs/FOLDER-STRUCTURE.md).
 2. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 3. [docs/DATA-FLOW.md](docs/DATA-FLOW.md)
 4. [docs/MOCK-VS-API-VS-DB.md](docs/MOCK-VS-API-VS-DB.md)
-5. [docs/CODEX-FINAL-REPORT.md](docs/CODEX-FINAL-REPORT.md)
+5. [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
 ---
 
@@ -176,3 +176,55 @@ docs(project): add onboarding and architecture guides
 | Database | Neon o Render Postgres |
 
 Más detalle en [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
+### Checklist final para Vercel / Final Vercel checklist
+
+Antes de desplegar el frontend en Vercel:
+
+- configura el `Root Directory` como `frontend`
+- usa Node.js 20+ en la configuracion del proyecto
+- define `NEXT_PUBLIC_API_URL` con la URL publica del backend, por ejemplo `https://your-backend.up.railway.app/api`
+- define `INTERNAL_API_URL` con esa misma URL publica si no tienes una red interna separada
+- define `NEXT_PUBLIC_APP_NAME` con el nombre que quieras mostrar en la UI
+
+Before deploying the frontend to Vercel:
+
+- set the `Root Directory` to `frontend`
+- use Node.js 20+ in the project settings
+- set `NEXT_PUBLIC_API_URL` to the public backend URL, for example `https://your-backend.up.railway.app/api`
+- set `INTERNAL_API_URL` to that same public URL if you do not have a separate internal network
+- set `NEXT_PUBLIC_APP_NAME` to the name you want to display in the UI
+
+### Railway antes de Vercel / Railway before Vercel
+
+Si cambiaste el backend localmente despues de tu ultimo deploy, si necesitas redesplegar Railway antes de Vercel.  
+If you changed the backend locally after your last deploy, yes, you should redeploy Railway before Vercel.
+
+En este repo eso aplica porque el backend recibio mejoras en:
+
+- CORS con multiples origenes y wildcard
+- compatibilidad tipada de Prisma
+- configuracion moderna con `prisma.config.ts`
+
+That applies here because the backend received updates for:
+
+- multi-origin and wildcard CORS
+- Prisma type compatibility fixes
+- modern Prisma configuration with `prisma.config.ts`
+
+No necesitas recrear la base de datos si Railway y PostgreSQL ya existen.  
+You do not need to recreate the database if Railway and PostgreSQL already exist.
+
+Lo que si conviene es redesplegar el servicio backend y, si es el primer despliegue sobre esa base o la base esta vacia, ejecutar:
+
+```bash
+npm run prisma:deploy
+npm run prisma:seed
+```
+
+What you should redeploy is the backend service and, if this is the first deploy against that database or the database is empty, run:
+
+```bash
+npm run prisma:deploy
+npm run prisma:seed
+```

@@ -39,6 +39,20 @@ Variables a configurar:
 - `INTERNAL_API_URL`
 - `NEXT_PUBLIC_APP_NAME`
 
+Configuracion recomendada en Vercel:
+
+- `Root Directory`: `frontend`
+- Install Command: `npm install`
+- Build Command: `npm run build`
+- Output: deteccion automatica de Next.js
+
+Recommended Vercel setup:
+
+- `Root Directory`: `frontend`
+- Install Command: `npm install`
+- Build Command: `npm run build`
+- Output: Next.js automatic detection
+
 ### Backend: Railway o Render / Railway or Render
 
 Explicacion en espanol:
@@ -58,6 +72,24 @@ Variables a configurar:
 - `PORT`
 - `CORS_ORIGIN`
 - `DATABASE_URL`
+
+Configuracion recomendada en Railway:
+
+- Root directory o servicio apuntando a `backend`
+- Build command: `npm run build`
+- Start command: `npm run start`
+- comando recomendado para migraciones de produccion: `npm run prisma:deploy`
+- `CORS_ORIGIN` acepta multiples URLs separadas por comas
+- tambien acepta patrones wildcard como `https://*.vercel.app`
+
+Recommended Railway setup:
+
+- Root directory or service pointing to `backend`
+- Build command: `npm run build`
+- Start command: `npm run start`
+- recommended production migration command: `npm run prisma:deploy`
+- `CORS_ORIGIN` accepts multiple comma-separated URLs
+- it also accepts wildcard patterns such as `https://*.vercel.app`
 
 ### Database: Neon
 
@@ -81,7 +113,10 @@ English:
 2. Pega esa `DATABASE_URL` en Railway o Render para el backend
 3. Despliega el backend y copia su URL publica
 4. Usa esa URL para configurar `NEXT_PUBLIC_API_URL` en Vercel
-5. Si el frontend hace server-side fetches con otra red interna, ajusta `INTERNAL_API_URL`
+5. Si no tienes una red interna separada, usa la misma URL publica para `INTERNAL_API_URL`
+6. Agrega la URL de Vercel a `CORS_ORIGIN` en Railway
+7. Si es el primer despliegue sobre esa base, ejecuta `npm run prisma:deploy`
+8. Si quieres cargar el catalogo inicial en una base vacia, ejecuta `npm run prisma:seed`
 
 ### Step by step in English
 
@@ -89,7 +124,10 @@ English:
 2. Paste that `DATABASE_URL` into Railway or Render for the backend
 3. Deploy the backend and copy its public URL
 4. Use that URL to configure `NEXT_PUBLIC_API_URL` in Vercel
-5. If the frontend uses server-side fetches through a different internal network, set `INTERNAL_API_URL`
+5. If you do not have a separate internal network, use that same public URL for `INTERNAL_API_URL`
+6. Add your Vercel URL to `CORS_ORIGIN` in Railway
+7. If this is the first deploy against that database, run `npm run prisma:deploy`
+8. If you want initial catalog data in an empty database, run `npm run prisma:seed`
 
 ## Que probar despues del deployment / What to test after deployment
 
@@ -104,6 +142,8 @@ English:
 - crear, editar y eliminar un producto en `api` mode
 - repetir el CRUD en `db` mode
 - revisar `GET /api/health`
+- confirmar que `api` y `db` mode funcionen desde el dominio de Vercel
+- revisar que no aparezcan errores CORS en el navegador
 
 ### English checklist
 
@@ -116,6 +156,8 @@ English:
 - create, edit, and delete a product in `api` mode
 - repeat CRUD in `db` mode
 - verify `GET /api/health`
+- confirm that `api` and `db` mode work from the Vercel domain
+- check that no CORS errors appear in the browser
 
 ## Ruta mas facil para demos / Easiest path for demos
 

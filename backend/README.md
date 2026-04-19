@@ -37,3 +37,31 @@ npm run dev
 
 El API queda disponible en `http://localhost:4000/api`.  
 The API is available at `http://localhost:4000/api`.
+
+## Produccion en Railway / Production on Railway
+
+Si ya tienes el servicio y la base creados, normalmente solo debes redesplegar el backend.
+No necesitas recrear PostgreSQL si `DATABASE_URL` sigue apuntando a la misma base.
+
+If your service and database already exist, you normally only need to redeploy the backend.
+You do not need to recreate PostgreSQL if `DATABASE_URL` still points to the same database.
+
+Para aplicar migraciones en produccion:
+
+```bash
+npm run prisma:deploy
+```
+
+Y si es una base nueva o vacia, carga tambien el seed:
+
+```bash
+npm run prisma:seed
+```
+
+## Nota sobre Prisma / Prisma note
+
+El backend usa `prisma.config.ts` para centralizar la configuracion moderna de Prisma y evitar advertencias deprecadas.
+La conexion real sigue viniendo de `DATABASE_URL` en tu `.env`.
+
+The backend uses `prisma.config.ts` to centralize modern Prisma configuration and avoid deprecated warnings.
+The real connection still comes from `DATABASE_URL` in your `.env`.
