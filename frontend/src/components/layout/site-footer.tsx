@@ -4,7 +4,7 @@ import type { Language } from '@/lib/i18n';
 export function SiteFooter({ language }: { language: Language }) {
   return (
     <footer className="border-t border-white/70 bg-[rgba(255,250,242,0.72)]">
-      <div className="mx-auto grid max-w-7xl gap-6 px-6 py-10 text-sm text-ink-700 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+      <div className="mx-auto grid max-w-[1500px] gap-6 px-6 py-10 text-sm text-ink-700 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
         <div className="space-y-3">
           <p className="font-semibold text-ink-950">Product Catalog Learning Platform</p>
           <p>

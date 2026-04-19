@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import { notFound } from 'next/navigation';import { ProductGrid } from '@/components/catalog/product-grid';
+import { notFound } from 'next/navigation';
+
+import { ProductGrid } from '@/components/catalog/product-grid';
 import { DataModeSwitcher } from '@/components/education/data-mode-switcher';
 import { Card } from '@/components/ui/card';
 import { t } from '@/lib/i18n';

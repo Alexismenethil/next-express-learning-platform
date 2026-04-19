@@ -11,3 +11,7 @@ const envSchema = z.object({
 });
 
 export const env = envSchema.parse(process.env);
+
+export const corsOrigins = env.CORS_ORIGIN.split(',')
+  .map((value) => value.trim())
+  .filter(Boolean);

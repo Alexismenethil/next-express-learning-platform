@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import { notFound } from 'next/navigation';import { Badge } from '@/components/ui/badge';
+import { notFound } from 'next/navigation';
+
+import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { DataModeSwitcher } from '@/components/education/data-mode-switcher';
 import { DataSourceBanner } from '@/components/education/data-source-banner';
@@ -30,7 +32,9 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
       <div className="flex flex-col lg:flex-row items-start justify-between gap-8 mb-4">
         <div className="space-y-4 flex-1">
           <div className="flex flex-wrap gap-2">
-            <Badge variant="default" className="bg-ink-100 text-ink-950 hover:bg-ink-200 transition-colors">{product.categoryName}</Badge>
+            <Badge variant="default" className="bg-ink-100 text-ink-950 transition-colors hover:bg-ink-200">
+              {product.categoryName}
+            </Badge>
             <Badge variant={mode === 'db' ? 'coral' : mode === 'api' ? 'teal' : 'muted'} className="shadow-sm">
               {mode.toUpperCase()}
             </Badge>

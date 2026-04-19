@@ -1,3 +1,5 @@
+import type { Prisma } from '@prisma/client';
+
 import type { CategoryDto, ProductDto } from './catalog.types.js';
 
 type PrismaCategoryRecord = {
@@ -7,22 +9,13 @@ type PrismaCategoryRecord = {
   description: string;
 };
 
-type PrismaProductWithCategory = {
-  id: string;
-  slug: string;
-  name: string;
-  shortDescription: string;
-  description: string;
-  price: { toString(): string } | number;
-  inventory: number;
-  status: string;
-  featured: boolean;
-  categoryId: string;
-  learningNotes: unknown;
-  createdAt: Date;
-  updatedAt: Date;
-  category: PrismaCategoryRecord;
-};
+export const productWithCategoryArgs = {
+  include: {
+    category: true,
+  },
+} satisfies Prisma.ProductDefaultArgs;
+
+type PrismaProductWithCategory = Prisma.ProductGetPayload<typeof productWithCategoryArgs>;
 
 export function mapCategory(category: PrismaCategoryRecord | CategoryDto): CategoryDto {
   return {

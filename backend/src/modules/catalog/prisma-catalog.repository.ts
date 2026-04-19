@@ -1,8 +1,10 @@
+import { Prisma } from '@prisma/client';
+
 import { prisma } from '../../db/prisma.js';
 import { AppError } from '../../lib/app-error.js';
 import { slugify } from '../../utils/slug.js';
 
-import { mapCategory, mapProduct } from './catalog.mappers.js';
+import { mapCategory, mapProduct, productWithCategoryArgs } from './catalog.mappers.js';
 
 import type {
   CatalogRepository,
@@ -32,7 +34,7 @@ export class PrismaCatalogRepository implements CatalogRepository {
   }
 
   async getProducts(query?: ProductListQuery) {
-    const where = {
+    const where: Prisma.ProductWhereInput = {
       ...(query?.category
         ? {
             category: {
@@ -46,13 +48,13 @@ export class PrismaCatalogRepository implements CatalogRepository {
               {
                 name: {
                   contains: query.search,
-                  mode: 'insensitive',
+                  mode: Prisma.QueryMode.insensitive,
                 },
               },
               {
                 shortDescription: {
                   contains: query.search,
-                  mode: 'insensitive',
+                  mode: Prisma.QueryMode.insensitive,
                 },
               },
             ],
@@ -61,10 +63,8 @@ export class PrismaCatalogRepository implements CatalogRepository {
     };
 
     const products = await prisma.product.findMany({
+      ...productWithCategoryArgs,
       where,
-      include: {
-        category: true,
-      },
       orderBy: {
         name: 'asc',
       },
@@ -75,11 +75,9 @@ export class PrismaCatalogRepository implements CatalogRepository {
 
   async getProductById(idOrSlug: string) {
     const product = await prisma.product.findFirst({
+      ...productWithCategoryArgs,
       where: {
         OR: [{ id: idOrSlug }, { slug: idOrSlug }],
-      },
-      include: {
-        category: true,
       },
     });
 
@@ -90,6 +88,7 @@ export class PrismaCatalogRepository implements CatalogRepository {
     const categoryId = await getCategoryIdBySlug(input.categorySlug);
 
     const product = await prisma.product.create({
+      ...productWithCategoryArgs,
       data: {
         id: `product-${slugify(input.name)}`,
         slug: slugify(input.name),
@@ -102,9 +101,6 @@ export class PrismaCatalogRepository implements CatalogRepository {
         featured: input.featured,
         learningNotes: input.learningNotes,
         categoryId,
-      },
-      include: {
-        category: true,
       },
     });
 
@@ -123,6 +119,7 @@ export class PrismaCatalogRepository implements CatalogRepository {
     const categoryId = await getCategoryIdBySlug(input.categorySlug);
 
     const product = await prisma.product.update({
+      ...productWithCategoryArgs,
       where: { id },
       data: {
         slug: slugify(input.name),
@@ -135,9 +132,6 @@ export class PrismaCatalogRepository implements CatalogRepository {
         featured: input.featured,
         learningNotes: input.learningNotes,
         categoryId,
-      },
-      include: {
-        category: true,
       },
     });
 

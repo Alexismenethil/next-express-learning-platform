@@ -17,7 +17,7 @@ export function SiteHeader({ language }: { language: Language }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/70 bg-[rgba(255,250,242,0.82)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-6 px-6 py-4 lg:px-8">
         <div className="flex items-center gap-5">
           <Link href="/" className="space-y-1">
             <p className="text-lg font-semibold tracking-tight text-ink-950">{appConfig.name}</p>

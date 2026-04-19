@@ -19,8 +19,9 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(191, 228, 239, 0.35), transparent 28%),
-    radial-gradient(circle at top right, rgba(236, 216, 180, 0.28), transparent 28%),
+    radial-gradient(circle at 10% 0%, rgba(191, 228, 239, 0.36), transparent 24%),
+    radial-gradient(circle at 88% 8%, rgba(236, 216, 180, 0.32), transparent 25%),
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.58), transparent 28%),
     linear-gradient(180deg, #fffdf8 0%, #f7f3ea 100%);
   color: #10212a;
   font-family: var(--font-sans);
@@ -42,8 +43,8 @@ pre {
 
 .surface-grid {
   background-image:
-    linear-gradient(rgba(24, 48, 61, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(24, 48, 61, 0.028) 1px, transparent 1px);
+    linear-gradient(rgba(24, 48, 61, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 48, 61, 0.024) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 

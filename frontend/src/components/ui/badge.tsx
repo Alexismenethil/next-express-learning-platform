@@ -3,9 +3,11 @@ import { cn } from '@/lib/utils';
 export function Badge({
   children,
   variant = 'default',
+  className,
 }: {
   children: React.ReactNode;
   variant?: 'default' | 'teal' | 'coral' | 'muted';
+  className?: string;
 }) {
   return (
     <span
@@ -15,6 +17,7 @@ export function Badge({
         variant === 'teal' && 'border-teal-600/14 bg-[rgba(30,139,131,0.08)] text-teal-600',
         variant === 'coral' && 'border-coral-500/14 bg-[rgba(222,98,57,0.08)] text-coral-500',
         variant === 'muted' && 'border-ink-900/8 bg-sand-50/95 text-ink-700',
+        className,
       )}
     >
       {children}

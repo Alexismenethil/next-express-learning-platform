@@ -2,14 +2,22 @@
   --font-sans: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
   --font-mono: "SFMono-Regular", "Menlo", "Consolas", monospace;
 
+  --color-ink-50: #f4f7f8;
+  --color-ink-100: #e5edf0;
+  --color-ink-200: #cfdbe1;
+  --color-ink-400: #7a909b;
+  --color-ink-500: #5d7480;
+  --color-ink-600: #48606c;
   --color-ink-950: #10212a;
   --color-ink-900: #18303d;
   --color-ink-700: #3d5a68;
   --color-sand-50: #fffaf2;
   --color-sand-100: #f8efdf;
   --color-sand-200: #ecd8b4;
+  --color-teal-50: #eef8f7;
   --color-teal-500: #1e8b83;
   --color-teal-600: #176d67;
+  --color-teal-700: #135753;
   --color-coral-400: #ef7b56;
   --color-coral-500: #de6239;
   --color-sky-300: #bfe4ef;

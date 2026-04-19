@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { ArchitectureExplorer } from '@/components/education/architecture-explorer';
 import { getArchitectureNavigation } from '@/constants/navigation';
 import { RequestFlow } from '@/components/education/request-flow';
 import { Card } from '@/components/ui/card';
@@ -17,20 +18,22 @@ export default async function ArchitecturePage() {
         eyebrow={t(language, 'Guia de arquitectura', 'Architecture guide')}
         title={t(
           language,
-          'Un recorrido simple para entender la estructura del proyecto.',
-          'A simple walkthrough for understanding the project structure.',
+          'Un mapa interactivo para entender el stack sin memorizarlo.',
+          'An interactive map for understanding the stack without memorizing it.',
         )}
         description={t(
           language,
-          'Cada seccion explica una parte del stack con menos ruido visual y con una progresion clara para onboarding.',
-          'Each section explains one part of the stack with less visual noise and a clearer onboarding progression.',
+          'Pulsa una capa, mira los archivos clave y abre la seccion cuando ya sepas que pregunta quieres responder.',
+          'Tap a layer, inspect the key files, and open the section once you know which question you want to answer.',
         )}
       />
+
+      <ArchitectureExplorer language={language} />
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {navigation.map((item) => (
           <Link key={item.href} href={item.href}>
-            <Card className="flex h-full flex-col gap-4 transition hover:-translate-y-1">
+            <Card className="flex h-full flex-col gap-4 transition hover:-translate-y-1 hover:shadow-[0_24px_52px_rgba(16,33,42,0.08)]">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-600">
                 {t(language, 'Guia', 'Guide')}
               </p>

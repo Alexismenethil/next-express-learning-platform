@@ -25,4 +25,3 @@ Thumbs.db
 frontend/.vercel
 backend/generated
 backend/prisma/generated
-CLAUDE.md
