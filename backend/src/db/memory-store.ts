@@ -5,6 +5,7 @@ export type MemoryCategoryRecord = {
   slug: string;
   name: string;
   description: string;
+  imageUrl?: string;
 };
 
 export type MemoryProductRecord = {
@@ -21,6 +22,7 @@ export type MemoryProductRecord = {
   learningNotes: string[];
   createdAt: string;
   updatedAt: string;
+  imageUrl?: string;
 };
 
 const initialTimestamp = new Date().toISOString();

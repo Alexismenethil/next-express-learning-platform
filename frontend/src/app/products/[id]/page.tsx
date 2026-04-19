@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { MediaImage } from '@/components/ui/media-image';
 import { DataModeSwitcher } from '@/components/education/data-mode-switcher';
 import { DataSourceBanner } from '@/components/education/data-source-banner';
 import { FileLocationCard } from '@/components/education/file-location-card';
@@ -49,13 +49,11 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
 
       {product.imageUrl && (
         <div className="relative w-full aspect-[21/9] overflow-hidden rounded-3xl bg-ink-50 shadow-2xl shadow-ink-900/10 mb-8 border border-ink-900/10 group">
-          <Image
+          <MediaImage
             src={product.imageUrl}
             alt={product.name}
-            fill
-            className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-            priority
-            sizes="(max-width: 1200px) 100vw, 1200px"
+            className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink-950/20 to-transparent opacity-60" />
         </div>

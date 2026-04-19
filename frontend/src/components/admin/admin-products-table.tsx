@@ -7,6 +7,7 @@ import { startTransition, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { buttonClassName } from '@/components/ui/button-link';
 import { Card } from '@/components/ui/card';
+import { MediaImage } from '@/components/ui/media-image';
 import { formatCurrency } from '@/lib/utils';
 import { appConfig } from '@/lib/env';
 import { t } from '@/lib/i18n';
@@ -68,9 +69,21 @@ export function AdminProductsTable({
             {products.map((product) => (
               <tr key={product.id} className="border-b border-ink-900/5">
                 <td className="px-4 py-4">
-                  <div className="space-y-1">
-                    <p className="font-semibold text-ink-950">{product.name}</p>
-                    <p className="text-sm text-ink-700">{product.shortDescription}</p>
+                  <div className="flex items-center gap-4">
+                    <div className="relative size-16 overflow-hidden rounded-2xl border border-ink-900/8 bg-sand-50">
+                      {product.imageUrl ? (
+                        <MediaImage
+                          src={product.imageUrl}
+                          alt={product.name}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : null}
+                    </div>
+                    <div className="space-y-1">
+                      <p className="font-semibold text-ink-950">{product.name}</p>
+                      <p className="text-sm text-ink-700">{product.shortDescription}</p>
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-4 text-sm text-ink-700">{product.categoryName}</td>

@@ -13,6 +13,7 @@ type AppStateContextValue = {
 export const AppStateContext = createContext<AppStateContextValue | null>(null);
 
 const storageKey = 'learning-platform-demo-auth';
+
 const listeners = new Set<() => void>();
 
 function subscribe(listener: () => void) {

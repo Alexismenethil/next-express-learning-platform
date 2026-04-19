@@ -7,6 +7,7 @@ type PrismaCategoryRecord = {
   slug: string;
   name: string;
   description: string;
+  imageUrl?: string | null;
 };
 
 export const productWithCategoryArgs = {
@@ -23,6 +24,7 @@ export function mapCategory(category: PrismaCategoryRecord | CategoryDto): Categ
     slug: category.slug,
     name: category.name,
     description: category.description,
+    imageUrl: category.imageUrl,
   };
 }
 
@@ -45,5 +47,6 @@ export function mapProduct(product: PrismaProductWithCategory): ProductDto {
       : [],
     createdAt: product.createdAt.toISOString(),
     updatedAt: product.updatedAt.toISOString(),
+    imageUrl: product.imageUrl,
   };
 }

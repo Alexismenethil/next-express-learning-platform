@@ -71,11 +71,11 @@ export default async function ArchitecturePage() {
             ),
           },
           {
-            label: t(language, 'Entrar al admin', 'Enter the admin'),
+            label: t(language, 'Abrir admin si hace falta', 'Open admin if needed'),
             description: t(
               language,
-              'Observa fake auth, forms, validation y el recorrido CRUD.',
-              'Observe fake auth, forms, validation, and the CRUD journey.',
+              'Usa la ruta directa `/admin` cuando quieras explicar fake auth, forms, validation y el recorrido CRUD sin mezclarlo con la navegacion publica.',
+              'Use the direct `/admin` route when you want to explain fake auth, forms, validation, and the CRUD journey without mixing it into public navigation.',
             ),
           },
           {

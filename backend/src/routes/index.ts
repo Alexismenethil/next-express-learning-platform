@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import { prisma } from '../db/prisma.js';
 import { catalogRouter } from '../modules/catalog/catalog.routes.js';
+import { uploadsRouter } from '../modules/uploads/uploads.routes.js';
 
 export const apiRouter = Router();
 
@@ -25,4 +26,5 @@ apiRouter.get('/health', async (_req, res) => {
   });
 });
 
+apiRouter.use('/', uploadsRouter);
 apiRouter.use('/', catalogRouter);

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
-import { SiteFooter } from '@/components/layout/site-footer';
-import { SiteHeader } from '@/components/layout/site-header';
+import { SiteFrame } from '@/components/layout/site-frame';
 import { getCurrentLanguage } from '@/lib/i18n-server';
 import { AppStateProvider } from '@/providers/app-state-provider';
 
@@ -17,14 +16,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const language = await getCurrentLanguage();
 
   return (
-    <html lang={language}>
+    <html lang={language} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <AppStateProvider initialLanguage={language}>
-          <div className="min-h-screen">
-            <SiteHeader language={language} />
-            <main>{children}</main>
-            <SiteFooter language={language} />
-          </div>
+          <SiteFrame language={language}>{children}</SiteFrame>
         </AppStateProvider>
       </body>
     </html>

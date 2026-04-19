@@ -5,24 +5,28 @@ export const seedCategories = [
     name: 'Workspace',
     description:
       'Products that help people build comfortable and productive desks.',
+    imageUrl: '/images/products/ergonomic-stand.png',
   },
   {
     id: 'category-audio',
     slug: 'audio',
     name: 'Audio',
     description: 'Teaching-friendly examples for accessories with variants and pricing.',
+    imageUrl: '/images/products/noise-lite.png',
   },
   {
     id: 'category-travel',
     slug: 'travel',
     name: 'Travel',
     description: 'Compact products ideal for showcasing public catalog browsing.',
+    imageUrl: '/images/products/field-notes.png',
   },
   {
     id: 'category-learning',
     slug: 'learning-tools',
     name: 'Learning Tools',
     description: 'Small utilities perfect for seed data and admin demos.',
+    imageUrl: '/images/products/learning-tools.png',
   },
 ] as const;
 
@@ -43,6 +47,7 @@ export const seedProducts = [
       'Great example of a featured product rendered on the home page.',
       'Shows how category relationships travel from Prisma to the frontend card.',
     ],
+    imageUrl: '/images/products/ergonomic-stand.png',
   },
   {
     id: 'product-noise-lite',
@@ -60,6 +65,7 @@ export const seedProducts = [
       'Good candidate for a dynamic product detail route.',
       'Highlights the difference between mock arrays and backend payloads.',
     ],
+    imageUrl: '/images/products/noise-lite.png',
   },
   {
     id: 'product-field-notes-kit',
@@ -77,6 +83,7 @@ export const seedProducts = [
       'Useful on category pages because it belongs to a smaller collection.',
       'Keeps the catalog domain simple without adding checkout complexity.',
     ],
+    imageUrl: '/images/products/field-notes.png',
   },
   {
     id: 'product-retro-timer',
@@ -94,6 +101,7 @@ export const seedProducts = [
       'Draft status helps compare public versus admin concerns.',
       'Perfect for showing controlled forms and backend validation errors.',
     ],
+    imageUrl: '/images/products/retro-timer.png',
   },
   {
     id: 'product-travel-dock',
@@ -111,6 +119,7 @@ export const seedProducts = [
       'Pairs well with the detail route explanation on /products/[id].',
       'Useful when teaching how metadata could be generated from backend data later.',
     ],
+    imageUrl: '/images/products/travel-dock.png',
   },
   {
     id: 'product-wave-microphone',
@@ -128,5 +137,6 @@ export const seedProducts = [
       'Supports category examples and admin table sorting conversations.',
       'Keeps the catalog realistic while remaining easy to reason about.',
     ],
+    imageUrl: '/images/products/wave-microphone.png',
   },
 ] as const;

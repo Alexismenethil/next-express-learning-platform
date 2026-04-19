@@ -146,10 +146,11 @@ More detail in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and [docs/ONBOARDING
 ## Orden recomendado de lectura / Recommended reading order
 
 1. [docs/ONBOARDING-GUIDE.md](docs/ONBOARDING-GUIDE.md)
-2. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
-3. [docs/DATA-FLOW.md](docs/DATA-FLOW.md)
-4. [docs/MOCK-VS-API-VS-DB.md](docs/MOCK-VS-API-VS-DB.md)
-5. [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
+2. [docs/TEACHER-GUIDE.md](docs/TEACHER-GUIDE.md)
+3. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+4. [docs/DATA-FLOW.md](docs/DATA-FLOW.md)
+5. [docs/MOCK-VS-API-VS-DB.md](docs/MOCK-VS-API-VS-DB.md)
+6. [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
 ---
 

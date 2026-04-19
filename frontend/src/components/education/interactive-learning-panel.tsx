@@ -45,11 +45,11 @@ export function InteractiveLearningPanel({
         id: 'catalog',
         icon: Compass,
         title: t(language, 'Mision 1: entender el producto', 'Mission 1: understand the product'),
-        subtitle: t(language, 'Empieza por la experiencia visible', 'Start with the visible experience'),
+        subtitle: t(language, 'Empieza por lo que ve la persona usuaria', 'Start with what the user sees'),
         summary: t(
           language,
-          'Abre el catalogo y descubre primero que problema resuelve la app antes de entrar a carpetas o arquitectura.',
-          'Open the catalog and understand what problem the app solves before diving into folders or architecture.',
+          'Primero entiende el catalogo. Despues entra a carpetas y arquitectura.',
+          'Understand the catalog first. Then move into folders and architecture.',
         ),
         lessonTitle: t(language, 'Que aprendes aqui', 'What you learn here'),
         lessons: [
@@ -65,11 +65,11 @@ export function InteractiveLearningPanel({
         id: 'data',
         icon: DatabaseZap,
         title: t(language, 'Mision 2: tocar el flujo de datos', 'Mission 2: touch the data flow'),
-        subtitle: t(language, 'Prueba Mock, API y DB como un laboratorio', 'Try Mock, API, and DB like a lab'),
+        subtitle: t(language, 'Compara Mock, API y DB', 'Compare Mock, API, and DB'),
         summary: t(
           language,
-          'Cambia el origen de datos y mira como la misma interfaz se mantiene estable aunque la fuente cambie.',
-          'Switch the data source and see how the same interface stays stable while the source changes.',
+          'Cambia la fuente de datos sin cambiar la interfaz.',
+          'Switch the data source without changing the interface.',
         ),
         lessonTitle: t(language, 'Que cambia al interactuar', 'What changes when you interact'),
         lessons: [
@@ -88,8 +88,8 @@ export function InteractiveLearningPanel({
         subtitle: t(language, 'Conecta pantallas, componentes y backend', 'Connect screens, components, and backend'),
         summary: t(
           language,
-          'Explora la guia de arquitectura como un mapa visual para relacionar cada capa del stack con el producto real.',
-          'Explore the architecture guide as a visual map that connects each layer of the stack to the real product.',
+          'Usa la guia para conectar el producto con cada capa del stack.',
+          'Use the guide to connect the product with each layer of the stack.',
         ),
         lessonTitle: t(language, 'Preguntas que esta mision responde', 'Questions this mission answers'),
         lessons: [
@@ -223,8 +223,8 @@ export function InteractiveLearningPanel({
                 <p className="max-w-2xl text-base leading-7 text-ink-700">
                   {t(
                     language,
-                    'Haz clic en cada mision para cambiar el foco. La idea es aprender tocando la interfaz, no solo leyendo bloques.',
-                    'Click each mission to change the focus. The goal is to learn by touching the interface, not just reading blocks.',
+                    'Cambia de foco con un clic y entra directo a la parte importante.',
+                    'Change focus with one click and jump straight to the important part.',
                   )}
                 </p>
               </div>
@@ -239,8 +239,8 @@ export function InteractiveLearningPanel({
                       <p className="mt-2 text-sm leading-6 text-ink-700">
                         {t(
                           language,
-                          'Toca un modo y observa como cambia la explicacion del origen de datos.',
-                          'Tap a mode and see how the explanation of the data source changes.',
+                          'Toca un modo y mira que cambia.',
+                          'Tap a mode and see what changes.',
                         )}
                       </p>
                     </div>
@@ -366,8 +366,8 @@ export function InteractiveLearningPanel({
                 <p className="text-sm text-ink-700">
                   {t(
                     language,
-                    'Consejo: cambia de mision varias veces y compara que se mantiene fijo.',
-                    'Tip: switch missions a few times and compare what stays stable.',
+                    'Tip: compara que cambia y que se mantiene igual.',
+                    'Tip: compare what changes and what stays the same.',
                   )}
                 </p>
                 <Link href={activeMission.href} className={buttonClassName('primary')}>

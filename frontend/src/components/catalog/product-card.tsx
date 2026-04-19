@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
+import { MediaImage } from '@/components/ui/media-image';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { t } from '@/lib/i18n';
@@ -21,12 +21,11 @@ export function ProductCard({
     <Card className="group flex h-full flex-col overflow-hidden border-ink-900/10 bg-white/70 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-ink-900/20 hover:shadow-[0_32px_64px_rgba(16,33,42,0.08)]">
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink-50">
         {product.imageUrl ? (
-          <Image
+          <MediaImage
             src={product.imageUrl}
             alt={product.name}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-ink-100 text-sm font-medium text-ink-400">

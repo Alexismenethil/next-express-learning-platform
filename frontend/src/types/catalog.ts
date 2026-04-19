@@ -37,6 +37,7 @@ export type ProductFormValues = {
   featured: boolean;
   categorySlug: string;
   learningNotes: string[];
+  imageUrl?: string;
 };
 
 export type CatalogLoadResult = {

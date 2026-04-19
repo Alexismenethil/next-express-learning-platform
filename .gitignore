@@ -10,6 +10,8 @@ backend/.env
 .next
 frontend/.next
 backend/dist
+backend/uploads/*
+!backend/uploads/.gitkeep
 coverage
 .turbo
 

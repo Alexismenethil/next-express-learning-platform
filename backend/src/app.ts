@@ -4,6 +4,7 @@ import express from 'express';
 import { corsOrigins } from './config/env.js';
 import { errorHandler } from './middlewares/error-handler.js';
 import { notFoundMiddleware } from './middlewares/not-found.js';
+import { uploadsDirectoryPath } from './modules/uploads/uploads.storage.js';
 import { apiRouter } from './routes/index.js';
 
 function matchesCorsOrigin(origin: string, allowedOrigin: string) {
@@ -51,6 +52,7 @@ export function createApp() {
     });
   });
 
+  app.use('/uploads', express.static(uploadsDirectoryPath));
   app.use('/api', apiRouter);
   app.use(notFoundMiddleware);
   app.use(errorHandler);

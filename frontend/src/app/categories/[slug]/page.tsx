@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { ProductGrid } from '@/components/catalog/product-grid';
 import { DataModeSwitcher } from '@/components/education/data-mode-switcher';
 import { Card } from '@/components/ui/card';
+import { MediaImage } from '@/components/ui/media-image';
 import { t } from '@/lib/i18n';
 import { getCurrentLanguage } from '@/lib/i18n-server';
 import { getCatalogLoadResult } from '@/services/catalog-service';
@@ -29,12 +29,11 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     <div className="mx-auto max-w-7xl space-y-8 px-6 py-14 lg:px-8">
       <div className="relative mb-12 overflow-hidden rounded-[2.5rem] bg-ink-950 px-8 py-16 sm:px-12 sm:py-24 shadow-2xl">
         {category.imageUrl && (
-          <Image
+          <MediaImage
             src={category.imageUrl}
             alt={category.name}
-            fill
-            className="object-cover opacity-50 mix-blend-luminosity transition-transform duration-1000 ease-out hover:scale-105 hover:opacity-60"
-            priority
+            className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity transition-transform duration-1000 ease-out hover:scale-105 hover:opacity-60"
+            loading="eager"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/50 to-transparent" />

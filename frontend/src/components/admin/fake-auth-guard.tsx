@@ -20,8 +20,8 @@ export function FakeAuthGuard({
 
   if (!isDemoAuthenticated) {
     return (
-      <Card className="border-coral-500/15 bg-coral-500/5">
-        <div className="space-y-4">
+      <Card className="border-coral-500/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(255,243,238,0.88)_100%)] shadow-[0_18px_46px_rgba(16,33,42,0.06)]">
+        <div className="space-y-5">
           <div className="flex items-center gap-3 text-coral-500">
             <ShieldAlert className="size-5" />
             <p className="text-sm font-semibold uppercase tracking-[0.2em]">
@@ -38,16 +38,21 @@ export function FakeAuthGuard({
           <p className="max-w-2xl text-sm leading-6 text-ink-700">
             {t(
               language,
-              'Esto no es autenticacion real. Existe para ensenar limites de rutas, navegacion de admin y la diferencia entre una experiencia protegida y un backend seguro.',
-              'This is not real authentication. It exists to teach route boundaries, admin navigation, and the difference between protected experiences and secure backends.',
+              'Esto no es autenticacion real. Existe para ensenar limites de rutas, navegacion interna y la diferencia entre una UI protegida y un backend seguro. El admin ahora vive como un workspace separado del sitio publico.',
+              'This is not real authentication. It exists to teach route boundaries, internal navigation, and the difference between a gated UI and a secure backend. The admin now lives as a workspace separate from the public site.',
             )}
           </p>
-          <Link
-            href="/demo-access"
-            className={buttonClassName('primary')}
-          >
-            {t(language, 'Activar acceso demo de admin', 'Enable demo admin access')}
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/admin" className={buttonClassName('primary')}>
+              {t(language, 'Ir a la pantalla de acceso', 'Go to the access screen')}
+            </Link>
+            <div className="inline-flex items-center rounded-full border border-coral-500/15 bg-white/70 px-4 py-3 text-sm text-ink-700">
+              <span className="font-semibold text-ink-950">/admin</span>
+              <span className="ml-2">
+                {t(language, 'es la entrada del panel.', 'is the panel entry route.')}
+              </span>
+            </div>
+          </div>
         </div>
       </Card>
     );

@@ -14,23 +14,24 @@ async function main() {
     });
   }
 
-  for (const product of seedProducts) {
-    await prisma.product.create({
-      data: {
-        id: product.id,
-        slug: product.slug,
-        name: product.name,
-        shortDescription: product.shortDescription,
-        description: product.description,
-        price: product.price,
-        inventory: product.inventory,
-        status: product.status,
-        featured: product.featured,
-        categoryId: product.categoryId,
-        learningNotes: product.learningNotes,
-      },
-    });
-  }
+    for (const product of seedProducts) {
+      await prisma.product.create({
+        data: {
+          id: product.id,
+          slug: product.slug,
+          name: product.name,
+          shortDescription: product.shortDescription,
+          description: product.description,
+          price: product.price,
+          inventory: product.inventory,
+          status: product.status,
+          featured: product.featured,
+          categoryId: product.categoryId,
+          learningNotes: product.learningNotes,
+          imageUrl: product.imageUrl,
+        },
+      });
+    }
 }
 
 main()

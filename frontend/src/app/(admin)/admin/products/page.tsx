@@ -22,6 +22,9 @@ export default async function AdminProductsPage({ searchParams }: PageProps) {
   }
 
   const catalog = await getCatalogLoadResult({ mode, language });
+  const publishedCount = catalog.products.filter((product) => product.status === 'published').length;
+  const featuredCount = catalog.products.filter((product) => product.featured).length;
+  const draftCount = catalog.products.length - publishedCount;
 
   return (
     <div className="space-y-6">
@@ -42,6 +45,30 @@ export default async function AdminProductsPage({ searchParams }: PageProps) {
       </div>
 
       <DataSourceBanner mode={mode} language={language} />
+      <div className="grid gap-4 md:grid-cols-3">
+        {[
+          {
+            label: t(language, 'Total de productos', 'Total products'),
+            value: String(catalog.products.length),
+          },
+          {
+            label: t(language, 'Publicados', 'Published'),
+            value: String(publishedCount),
+          },
+          {
+            label: t(language, 'Drafts / destacados', 'Drafts / featured'),
+            value: `${draftCount} / ${featuredCount}`,
+          },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="rounded-[26px] border border-white/75 bg-white/86 px-5 py-5 shadow-[0_16px_38px_rgba(16,33,42,0.05)]"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">{item.label}</p>
+            <p className="mt-3 text-3xl font-semibold tracking-tight text-ink-950">{item.value}</p>
+          </div>
+        ))}
+      </div>
       <AdminProductsTable products={catalog.products} mode={mode} language={language} />
 
       <div className="grid gap-6 lg:grid-cols-2">

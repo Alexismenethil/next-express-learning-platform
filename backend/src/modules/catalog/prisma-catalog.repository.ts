@@ -100,6 +100,7 @@ export class PrismaCatalogRepository implements CatalogRepository {
         status: input.status,
         featured: input.featured,
         learningNotes: input.learningNotes,
+        imageUrl: input.imageUrl ?? null,
         categoryId,
       },
     });
@@ -131,6 +132,7 @@ export class PrismaCatalogRepository implements CatalogRepository {
         status: input.status,
         featured: input.featured,
         learningNotes: input.learningNotes,
+        imageUrl: input.imageUrl ?? null,
         categoryId,
       },
     });

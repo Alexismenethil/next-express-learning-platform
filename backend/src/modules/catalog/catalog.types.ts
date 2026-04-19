@@ -5,6 +5,7 @@ export type CategoryDto = {
   slug: string;
   name: string;
   description: string;
+  imageUrl?: string | null;
 };
 
 export type ProductDto = {
@@ -23,6 +24,7 @@ export type ProductDto = {
   learningNotes: string[];
   createdAt: string;
   updatedAt: string;
+  imageUrl?: string | null;
 };
 
 export type ProductMutationInput = {
@@ -35,6 +37,7 @@ export type ProductMutationInput = {
   featured: boolean;
   categorySlug: string;
   learningNotes: string[];
+  imageUrl?: string | null;
 };
 
 export type ProductListQuery = {

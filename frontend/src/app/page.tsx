@@ -31,8 +31,8 @@ export default async function HomePage({ searchParams }: PageProps) {
       title: t(language, 'App Router claro', 'Clear App Router'),
       description: t(
         language,
-        'Layouts, rutas dinamicas y route groups explicados con ejemplos visuales.',
-        'Layouts, dynamic routes, and route groups explained with visual examples.',
+        'Layouts y rutas explicados sin ruido.',
+        'Layouts and routes explained without noise.',
       ),
       icon: Route,
       href: '/architecture/app-router',
@@ -41,8 +41,8 @@ export default async function HomePage({ searchParams }: PageProps) {
       title: t(language, 'Componentes bien separados', 'Well-separated components'),
       description: t(
         language,
-        'La UI reutilizable vive fuera de las rutas para que el proyecto escale con orden.',
-        'Reusable UI lives outside the routes so the project scales cleanly.',
+        'UI reutilizable fuera de las rutas.',
+        'Reusable UI outside the routes.',
       ),
       icon: Component,
       href: '/architecture/components',
@@ -51,21 +51,21 @@ export default async function HomePage({ searchParams }: PageProps) {
       title: t(language, 'Comparacion de datos', 'Data comparison'),
       description: t(
         language,
-        'Mock, API y DB muestran con claridad que cambia y que se mantiene estable.',
-        'Mock, API, and DB clearly show what changes and what stays stable.',
+        'Mock, API y DB con diferencias visibles.',
+        'Mock, API, and DB with visible differences.',
       ),
       icon: Database,
       href: '/architecture/mock-vs-api-vs-db',
     },
     {
-      title: t(language, 'Admin didactico', 'Teaching admin'),
+      title: t(language, 'Capas bien delimitadas', 'Clear stack layers'),
       description: t(
         language,
-        'El panel admin explica forms, validation y persistencia sin meter auth real.',
-        'The admin panel explains forms, validation, and persistence without real auth noise.',
+        'Frontend, backend y persistencia en capas claras.',
+        'Frontend, backend, and persistence in clear layers.',
       ),
       icon: LayoutPanelLeft,
-      href: '/admin',
+      href: '/architecture/backend',
     },
   ];
 
@@ -89,8 +89,8 @@ export default async function HomePage({ searchParams }: PageProps) {
                 <p className="max-w-2xl text-lg leading-8 text-ink-700">
                   {t(
                     language,
-                    'Esta version esta pensada para alguien que aprende mejor interactuando: eliges una mision, cambias el foco y el sistema te explica por que cada capa existe.',
-                    'This version is designed for someone who learns best by interacting: you choose a mission, change the focus, and the system explains why each layer exists.',
+                    'Explora el producto, cambia la fuente de datos y entiende la arquitectura con una ruta mucho mas simple.',
+                    'Explore the product, switch the data source, and understand the architecture through a much simpler flow.',
                   )}
                 </p>
               </div>
@@ -127,27 +127,27 @@ export default async function HomePage({ searchParams }: PageProps) {
           <div className="grid gap-4 md:grid-cols-3">
             {[
               {
-                title: t(language, 'Toca una mision', 'Touch a mission'),
+                title: t(language, 'Elige un foco', 'Pick a focus'),
                 description: t(
                   language,
-                  'La home ya no solo enumera pasos: ahora cambia el contenido segun lo que quieres aprender primero.',
-                  'The home no longer just lists steps: it now changes content based on what you want to learn first.',
+                  'Empieza por producto, datos o arquitectura.',
+                  'Start with product, data, or architecture.',
                 ),
               },
               {
-                title: t(language, 'Compara sin perderte', 'Compare without getting lost'),
+                title: t(language, 'Compara rapido', 'Compare quickly'),
                 description: t(
                   language,
-                  'El mismo producto sirve como ancla visual mientras cambias entre Mock, API y DB.',
-                  'The same product works as a visual anchor while you switch between Mock, API, and DB.',
+                  'La misma UI cambia entre Mock, API y DB.',
+                  'The same UI switches between Mock, API, and DB.',
                 ),
               },
               {
-                title: t(language, 'Aprende con contexto', 'Learn with context'),
+                title: t(language, 'Ve lo importante', 'See what matters'),
                 description: t(
                   language,
-                  'Cada decision te lleva a archivos, capas y preguntas concretas del stack.',
-                  'Each decision leads you to concrete files, layers, and stack questions.',
+                  'Archivos, capas y decisiones clave del stack.',
+                  'Files, layers, and key stack decisions.',
                 ),
               },
             ].map((item) => (
@@ -159,6 +159,19 @@ export default async function HomePage({ searchParams }: PageProps) {
                 <p className="mt-3 text-sm leading-6 text-ink-700">{item.description}</p>
               </Card>
             ))}
+          </div>
+
+          <div className="rounded-[28px] border border-white/75 bg-white/82 px-5 py-5 shadow-[0_18px_38px_rgba(16,33,42,0.05)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">
+              {t(language, 'Nota sobre el admin', 'Admin note')}
+            </p>
+            <p className="mt-3 max-w-4xl text-sm leading-6 text-ink-700">
+              {t(
+                language,
+                'El admin vive como area interna y se abre por ruta directa cuando quieras enseñar CRUD y acceso.',
+                'The admin now lives as an internal area and opens through a direct route when you want to teach CRUD and access.',
+              )}
+            </p>
           </div>
         </div>
       </section>
@@ -182,8 +195,8 @@ export default async function HomePage({ searchParams }: PageProps) {
           )}
           description={t(
             language,
-            'Empieza por el producto, compara las fuentes de datos y despues entra a la guia de arquitectura. Cada bloque esta pensado para enseñar una idea sin duplicar informacion.',
-            'Start with the product, compare data sources, and then enter the architecture guide. Each block is designed to teach one idea without duplicating information.',
+            'Empieza por el producto, compara datos y luego abre arquitectura.',
+            'Start with the product, compare data, then open architecture.',
           )}
         />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -215,8 +228,8 @@ export default async function HomePage({ searchParams }: PageProps) {
           )}
           description={t(
             language,
-            'Las mismas cards renderizan datos mock, respuestas del API o registros persistidos. Esa estabilidad hace que la arquitectura sea mas facil de enseñar.',
-            'The same cards render mock data, API responses, or persisted records. That stability makes the architecture easier to teach.',
+            'La misma interfaz funciona con datos mock, API o DB.',
+            'The same interface works with mock, API, or DB data.',
           )}
         />
         <ProductGrid products={featuredProducts} mode={mode} language={language} />
@@ -229,8 +242,8 @@ export default async function HomePage({ searchParams }: PageProps) {
           path="frontend/src/app/page.tsx"
           description={t(
             language,
-            'Esta page organiza el hero, el selector de modo y los bloques de aprendizaje sin meter detalles de datos dentro de la UI.',
-            'This page orchestrates the hero, mode switcher, and learning blocks without mixing data details into the UI.',
+            'Aqui vive la estructura principal de la home.',
+            'The main home structure lives here.',
           )}
         />
         <FileLocationCard
@@ -239,8 +252,8 @@ export default async function HomePage({ searchParams }: PageProps) {
           path="frontend/src/services/catalog-service.ts"
           description={t(
             language,
-            'Aqui se decide si el frontend debe leer mocks o llamar al backend, lo que mantiene la logica fuera de los route files.',
-            'This is where the frontend decides whether to read mocks or call the backend, keeping that logic out of the route files.',
+            'Aqui se decide si los datos vienen de mock, API o DB.',
+            'This is where data switches between mock, API, or DB.',
           )}
         />
       </section>

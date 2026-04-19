@@ -5,7 +5,6 @@ export function getPrimaryNavigation(language: Language) {
   return [
     { href: '/', label: t(language, 'Inicio', 'Home') },
     { href: '/products', label: t(language, 'Catalogo', 'Catalog') },
-    { href: '/admin', label: t(language, 'Admin Demo', 'Admin Demo') },
     { href: '/architecture', label: t(language, 'Arquitectura', 'Architecture') },
     { href: '/learning/git-and-env', label: t(language, 'Git y Env', 'Git & Env') },
   ];

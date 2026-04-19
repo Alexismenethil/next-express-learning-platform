@@ -85,6 +85,7 @@ export class MemoryCatalogRepository implements CatalogRepository {
       learningNotes: [...input.learningNotes],
       createdAt: now,
       updatedAt: now,
+      imageUrl: input.imageUrl ?? undefined,
     };
 
     memoryStore.products.unshift(record);
@@ -115,6 +116,7 @@ export class MemoryCatalogRepository implements CatalogRepository {
     existing.featured = input.featured;
     existing.categoryId = category.id;
     existing.learningNotes = [...input.learningNotes];
+    existing.imageUrl = input.imageUrl ?? undefined;
     existing.updatedAt = new Date().toISOString();
 
     return toProductDto(existing);
