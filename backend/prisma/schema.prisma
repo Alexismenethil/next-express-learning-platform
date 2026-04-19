@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String    @id
+  slug        String    @unique
+  name        String
+  description String
+  products    Product[]
+}
+
+model Product {
+  id               String   @id
+  slug             String   @unique
+  name             String
+  shortDescription String
+  description      String
+  price            Decimal  @db.Decimal(10, 2)
+  inventory        Int
+  status           String
+  featured         Boolean  @default(false)
+  learningNotes    Json
+  categoryId       String
+  category         Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}

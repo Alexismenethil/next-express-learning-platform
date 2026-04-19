@@ -1,0 +1,70 @@
+import type { Product } from '@/types/catalog';
+
+export const mockProducts: Product[] = [
+  {
+    id: 'mock-product-ergonomic-stand',
+    slug: 'ergonomic-monitor-stand',
+    name: 'Ergonomic Monitor Stand',
+    shortDescription: 'Mock data version used before wiring the backend.',
+    description:
+      'This record lives in frontend/src/mocks/products.ts and demonstrates how a team can prototype catalog UI without waiting for the API contract.',
+    price: 79,
+    inventory: 28,
+    status: 'published',
+    featured: true,
+    categoryId: 'mock-category-workspace',
+    categorySlug: 'workspace',
+    categoryName: 'Workspace',
+    learningNotes: [
+      'The mock version is intentionally stored in the frontend.',
+      'Switching away from mock mode teaches the boundary between prototype and backend.',
+    ],
+    createdAt: '2026-01-10T00:00:00.000Z',
+    updatedAt: '2026-02-18T00:00:00.000Z',
+    imageUrl: '/images/products/ergonomic-stand.png',
+  },
+  {
+    id: 'mock-product-noise-lite',
+    slug: 'noise-lite-headphones',
+    name: 'Noise Lite Headphones',
+    shortDescription: 'Mock audio item that appears in the public catalog and architecture docs.',
+    description:
+      'A second mock record helps juniors understand that design and layout work can happen long before real persistence is connected.',
+    price: 129,
+    inventory: 12,
+    status: 'published',
+    featured: true,
+    categoryId: 'mock-category-audio',
+    categorySlug: 'audio',
+    categoryName: 'Audio',
+    learningNotes: [
+      'The product detail route can be built directly against mock data.',
+      'Later the same component can render API or database data without changing its layout.',
+    ],
+    createdAt: '2026-01-12T00:00:00.000Z',
+    updatedAt: '2026-02-20T00:00:00.000Z',
+    imageUrl: '/images/products/noise-lite.png',
+  },
+  {
+    id: 'mock-product-field-notes-kit',
+    slug: 'field-notes-kit',
+    name: 'Field Notes Kit',
+    shortDescription: 'Travel category example designed for category-filter demos.',
+    description:
+      'This item reinforces that the product shape is the same across mock, API, and database modes, even though the source changes.',
+    price: 24,
+    inventory: 64,
+    status: 'published',
+    featured: false,
+    categoryId: 'mock-category-travel',
+    categorySlug: 'travel',
+    categoryName: 'Travel',
+    learningNotes: [
+      'Category pages use the same grid component as the main catalog.',
+      'The product domain stays intentionally small so architecture stays easy to teach.',
+    ],
+    createdAt: '2026-01-14T00:00:00.000Z',
+    updatedAt: '2026-02-22T00:00:00.000Z',
+    imageUrl: '/images/products/field-notes.png',
+  },
+];
